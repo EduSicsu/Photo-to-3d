@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10130f">
+  <meta name="description" content="Orbit a modeled cosmos garden, where late sun filters through the canopy onto a clipped boxwood bed.">
+  <title>Cosmos garden — Forma Botanica</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/sprig.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.min.js" } }
+  </script>
+</head>
+<body>
+  <main class="viewer" aria-labelledby="scene-title">
+    <div class="stage">
+      <img class="scene-still" src="./assets/garden-still.webp" width="1440" height="834" alt="A render of the three-dimensional garden, with magenta cosmos, boxwood borders and sunlit foliage." fetchpriority="high">
+      <p class="loading" role="status">Preparing the garden…</p>
+      <canvas id="garden" tabindex="-1" aria-label="Explore the three-dimensional cosmos garden" aria-describedby="keyboard-help"></canvas>
+    </div>
+    <footer class="rail">
+      <div class="caption">
+        <h1 id="scene-title">Cosmos <em>garden</em></h1>
+        <p class="hint" hidden>
+          <span class="desktop-hint">Drag to orbit <span class="separator">·</span> Shift-drag to move <span class="separator">·</span> Scroll to zoom</span>
+          <span class="touch-hint">Drag to orbit <span class="separator">·</span> Pinch to zoom</span>
+        </p>
+      </div>
+      <div class="controls" role="group" aria-label="View controls">
+        <div class="zoom-controls" hidden>
+          <button class="tool" id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+          <output id="zoom-value" aria-label="Zoom" aria-live="off">100%</output>
+          <button class="tool" id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+          <span class="divider" aria-hidden="true"></span>
+          <button class="tool" id="reset" type="button" title="Reset view" aria-label="Reset view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9a8.1 8.1 0 1 1-.1 5.8M4 3.6v5.7h5.8"/></svg></button>
+        </div>
+        <button class="tool" id="fullscreen" type="button" title="Enter fullscreen" aria-label="Enter fullscreen" hidden>
+          <svg class="expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 9V3.5H9m6 0h5.5V9m0 6v5.5H15m-6 0H3.5V15"/></svg>
+          <svg class="contract" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v6H3m12-6v6h6m0 6h-6v6m-6 0v-6H3"/></svg>
+        </button>
+      </div>
+    </footer>
+    <span id="keyboard-help" hidden>Focus the garden. Drag or use the arrow keys to orbit. Shift-drag or use W, A, S and D to travel. On touchscreens, use two fingers to move and pinch to zoom. Plus and minus zoom. Home resets the view.</span>
+    <span class="sr-only" id="announcement" role="status"></span>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
